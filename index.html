@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Golden Hour — AI Video & Image Studio · 100+ Free Tools · No Token</title>
+<meta name="description" content="Golden Hour is a free online AI video generator and AI image editor — text-to-video, image-to-video, face swap, lip sync & more. No sign-up, no token, nothing to install." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Grain + glow overlay -->
+<div class="grain" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand" aria-label="Golden Hour home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <defs>
+            <radialGradient id="sun" cx="50%" cy="55%" r="50%">
+              <stop offset="0%" stop-color="#fff3d6"/>
+              <stop offset="45%" stop-color="#ffb347"/>
+              <stop offset="100%" stop-color="#ff5e3a"/>
+            </radialGradient>
+          </defs>
+          <rect width="40" height="40" rx="11" fill="#15100b"/>
+          <path d="M6 26 C 14 12, 26 12, 34 26" stroke="url(#sun)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="22" r="6.5" fill="url(#sun)"/>
+        </svg>
+      </span>
+      <span class="brand__text">Golden&nbsp;Hour</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <button class="nav__pill is-active" data-filter="video">video</button>
+      <button class="nav__pill" data-filter="image">image</button>
+      <button class="nav__pill" data-filter="audio">audio</button>
+      <a class="nav__link" href="#pricing">Pricing</a>
+      <a class="nav__link" href="#api">API</a>
+    </nav>
+    <div class="nav__cta">
+      <button class="btn btn--ghost" data-action="login">Log In</button>
+      <button class="btn btn--sun" data-action="signup">Start Free</button>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <button class="nav__pill is-active" data-filter="video">video</button>
+    <button class="nav__pill" data-filter="image">image</button>
+    <button class="nav__pill" data-filter="audio">audio</button>
+    <a href="#pricing">Pricing</a>
+    <a href="#api">API</a>
+    <a href="#create">Start Creating Free</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <span class="hero__sun"></span>
+    <span class="hero__rays"></span>
+    <span class="hero__ridge"></span>
+  </div>
+
+  <div class="hero__memos" aria-hidden="true">
+    <span class="memo" style="--d:-6s;--x:-30px">🙂</span>
+    <span class="memo" style="--d:-3s;--x:0px">😎</span>
+    <span class="memo" style="--d:-1s;--x:30px">✨</span>
+  </div>
+
+  <div class="hero__copy">
+    <p class="eyebrow"><span class="dot"></span> Trusted by 3,629,758+ creators</p>
+    <h1 class="hero__title">
+      Create <em>AI videos</em> &amp; images
+      <span class="hero__title-accent">with 100+ free tools</span>
+    </h1>
+    <p class="hero__sub">Access the best AI models for video and image in one place. Start creating in seconds. <strong>Free to try, no token, nothing to install.</strong></p>
+    <div class="hero__actions">
+      <a href="#create" class="btn btn--sun btn--lg">Start Creating Free
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="hero__fine">No credit card required · No login wall</span>
+    </div>
+
+    <div class="hero__badges">
+      <span class="badge">⬡ 100+ AI tools</span>
+      <span class="badge">⬡ Browser only</span>
+      <span class="badge">⬡ Zero tokens</span>
+    </div>
+  </div>
+
+  <!-- hero tool carousel -->
+  <div class="hero__rail" aria-hidden="true">
+    <div class="rail__track" id="rail">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED STRIP -->
+<section class="trusted">
+  <div class="trusted__grid">
+    <article class="trusted__card">
+      <div class="trusted__art art--cinematic"></div>
+      <h3>Stunning Visuals, Any Style</h3>
+      <p>Create cinematic 4K scenes in one click, no cameras, no crew.</p>
+    </article>
+    <article class="trusted__card trusted__card--phone">
+      <div class="trusted__art art--phone"></div>
+      <h3>Publish from Anywhere</h3>
+      <p>Review, refine, and publish on the go.</p>
+      <a href="#create" class="inline-link">Create for Free Now →</a>
+    </article>
+  </div>
+</section>
+
+<!-- TOOL CATALOG -->
+<section class="catalog" id="catalog">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> One unified studio</p>
+    <h2>100+ AI tools. <em>One login-free studio.</em></h2>
+    <p class="section-sub">Explore our <a href="#catalog" class="inline-link">AI video generator hub</a> for text-to-video, face swap, lip sync, and more, or browse by category below.</p>
+  </header>
+
+  <div class="catalog__filters" role="tablist" aria-label="Tool categories">
+    <button class="chip is-active" data-cat="all">All <span>104</span></button>
+    <button class="chip" data-cat="video">Video <span>38</span></button>
+    <button class="chip" data-cat="image">Image <span>41</span></button>
+    <button class="chip" data-cat="audio">Audio <span>25</span></button>
+    <button class="chip" data-cat="effect">Effects <span>14</span></button>
+  </div>
+
+  <div class="catalog__grid" id="toolGrid"></div>
+  <p class="catalog__foot"><button class="inline-link" id="showAll">Show all 104 tools →</button></p>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare">
+  <header class="section-head">
+    <h2>Golden Hour <em>vs.</em> a stack of single-use apps</h2>
+    <p class="section-sub">Run your whole creative stack in one place — for less than the cost of a single specialty tool.</p>
+  </header>
+  <div class="compare__table">
+    <div class="compare__row compare__row--head">
+      <div>Capability</div><div>Golden Hour</div><div>A stack of apps</div>
+    </div>
+    <div class="compare__row"><div>All AI video &amp; image tools in one place</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>Free to try without a sign-up wall</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>Credits roll over and refund on errors</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>Face swap + lip sync + talking photos</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>One bill instead of five subscriptions</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>Parallel generations, no hidden limits</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>REST API + SDKs for production</div><div class="yes">✓</div><div class="no">—</div></div>
+    <div class="compare__row"><div>New models shipped weekly</div><div class="yes">✓</div><div class="no">—</div></div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="templates">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> Templates</p>
+    <h2>10,000+ templates. <em>Zero blank pages.</em></h2>
+    <p class="section-sub">Drag, drop, and publish. Perfectly sized for every channel.</p>
+    <a href="#create" class="inline-link">Explore Templates →</a>
+  </header>
+  <div class="templates__grid" id="templatesGrid"></div>
+</section>
+
+<!-- FOR TEAMS -->
+<section class="teams">
+  <header class="section-head section-head--split">
+    <div>
+      <p class="eyebrow"><span class="dot"></span> For teams &amp; agencies</p>
+      <h2>Experiences that <em>scale.</em></h2>
+    </div>
+    <a href="#pricing" class="btn btn--ghost">See Plans</a>
+  </header>
+  <div class="teams__grid">
+    <article class="teams__card teams__card--1">
+      <span class="teams__tag">Live Campaigns</span>
+      <h3>One API for face swaps, virtual try-ons, and personalized content.</h3>
+      <p>Fast to deploy and customize.</p>
+    </article>
+    <article class="teams__card teams__card--2">
+      <span class="teams__tag">Personalize at Scale</span>
+      <h3>Generate thousands of unique assets for social, experiential, and paid media.</h3>
+      <p>Use our <a href="#catalog" class="inline-link">AI UGC generator</a> and <a href="#catalog" class="inline-link">image to video</a> tools. Drives real engagement.</p>
+    </article>
+  </div>
+</section>
+
+<!-- FOR DEVELOPERS -->
+<section class="dev" id="api">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> For developers</p>
+    <h2>Ship AI video &amp; images <em>in minutes.</em></h2>
+  </header>
+  <div class="dev__cols">
+    <div class="dev__copy">
+      <div class="dev__callout">
+        <span class="dev__num">01</span>
+        <h3>One API call to start</h3>
+        <p>Drop-in SDKs for Node, Python, Go &amp; Rust. Try our image-to-video or text-to-video API. Install, authenticate, and generate in &lt;60s — no ML required. <strong>Or skip the key entirely</strong> with our token-free demo.</p>
+      </div>
+      <div class="dev__callout">
+        <span class="dev__num">02</span>
+        <h3>Scale with your traffic</h3>
+        <p>Go from 10 to 10M requests with consistent performance, usage-based pricing, and 99.9% uptime SLA.</p>
+      </div>
+      <div class="dev__endpoints">
+        <span>POST /v1/image-to-video</span>
+        <span>POST /v1/text-to-video</span>
+        <span>POST /v1/face-swap</span>
+        <span>POST /v1/lip-sync</span>
+      </div>
+    </div>
+    <div class="dev__code">
+      <div class="code__tabs">
+        <button class="code__tab is-active" data-lang="python">python</button>
+        <button class="code__tab" data-lang="node">node</button>
+        <button class="code__tab" data-lang="curl">curl</button>
+        <span class="code__dot"></span>
+      </div>
+      <pre class="code__block"><code id="codeBlock"></code></pre>
+      <div class="code__note">↑ No API key required for the demo. Set <code>GOLDEN_HOUR_KEY</code> for production scale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO (interactive, no-token) -->
+<section class="studio" id="create">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> The Studio</p>
+    <h2>Try it now. <em>No token. No login.</em></h2>
+    <p class="section-sub">Pick a tool, write a prompt, and watch the render. Everything runs locally in your browser — no keys, no accounts.</p>
+  </header>
+
+  <div class="studio__panel">
+    <div class="studio__left">
+      <label class="studio__field">
+        <span class="studio__label">Tool</span>
+        <select id="studioTool" class="studio__select">
+          <option value="text-to-video">Text → Video</option>
+          <option value="image-to-video">Image → Video</option>
+          <option value="video-to-video">Video → Video</option>
+          <option value="face-swap">Face Swap</option>
+          <option value="lip-sync">Lip Sync</option>
+          <option value="talking-photo">Talking Photo</option>
+          <option value="ai-image">AI Image Generator</option>
+          <option value="image-upscaler">AI Image Upscaler</option>
+          <option value="ai-gif">AI GIF Generator</option>
+          <option value="ugc-ad">AI UGC Ad</option>
+        </select>
+      </label>
+      <label class="studio__field">
+        <span class="studio__label">Prompt</span>
+        <textarea id="studioPrompt" class="studio__textarea" rows="3" placeholder="waves crashing on a golden beach at sunset, cinematic, 4K">waves crashing on a golden beach at sunset, cinematic, 4K</textarea>
+      </label>
+      <div class="studio__row">
+        <label class="studio__field studio__field--sm">
+          <span class="studio__label">Aspect</span>
+          <select id="studioAspect" class="studio__select">
+            <option>16:9</option><option>9:16</option><option>1:1</option>
+          </select>
+        </label>
+        <label class="studio__field studio__field--sm">
+          <span class="studio__label">Length</span>
+          <select id="studioLen" class="studio__select">
+            <option>5s</option><option selected>10s</option><option>15s</option><option>30s</option>
+          </select>
+        </label>
+        <label class="studio__field studio__field--sm">
+          <span class="studio__label">Resolution</span>
+          <select id="studioRes" class="studio__select">
+            <option>720p</option><option selected>1080p</option><option>4K</option>
+          </select>
+        </label>
+      </div>
+      <button class="btn btn--sun btn--lg btn--full" id="studioGenerate">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 3l14 9-14 9V3z" stroke-linejoin="round"/></svg>
+        Generate — no token required
+      </button>
+      <p class="studio__fine">⬡ Free · no sign-up · runs in your browser</p>
+    </div>
+
+    <div class="studio__right">
+      <div class="studio__viewport" id="studioViewport">
+        <div class="studio__empty" id="studioEmpty">
+          <span class="studio__empty-sun"></span>
+          <p>Your render will appear here.<br/>Press <kbd>Generate</kbd>.</p>
+        </div>
+        <canvas id="studioCanvas" hidden width="640" height="360"></canvas>
+        <video id="studioVideo" hidden muted loop playsinline></video>
+      </div>
+      <div class="studio__meta" id="studioMeta" hidden>
+        <span class="studio__meta-tag" id="metaTool">text-to-video</span>
+        <span class="studio__meta-tag studio__meta-tag--ghost" id="metaSpec">1080p · 10s · 16:9</span>
+        <span class="studio__meta-tag studio__meta-tag--ghost" id="metaTime">rendered in 0.0s</span>
+      </div>
+      <div class="studio__progress" id="studioProgress" hidden>
+        <div class="studio__progress-bar"><span id="progressFill"></span></div>
+        <span class="studio__progress-text" id="progressText">Rendering…</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> Pricing</p>
+    <h2>Free forever. <em>Scale when you're ready.</em></h2>
+    <p class="section-sub">No token required to start. Upgrade only when you need volume.</p>
+  </header>
+  <div class="pricing__grid">
+    <article class="plan plan--free">
+      <h3>Free</h3>
+      <p class="plan__price">$0<span>/forever</span></p>
+      <p class="plan__tag">No token · no login</p>
+      <ul>
+        <li>✓ 100+ AI tools</li>
+        <li>✓ Browser-only rendering</li>
+        <li>✓ 720p exports</li>
+        <li>✓ Golden Hour watermark</li>
+        <li>✓ Community support</li>
+      </ul>
+      <a href="#create" class="btn btn--ghost btn--full">Start Free</a>
+    </article>
+    <article class="plan plan--creator">
+      <span class="plan__ribbon">Most loved</span>
+      <h3>Creator</h3>
+      <p class="plan__price">$12<span>/mo</span></p>
+      <p class="plan__tag">Billed annually</p>
+      <ul>
+        <li>✓ Everything in Free</li>
+        <li>✓ 1080p, no watermark</li>
+        <li>✓ 60s videos</li>
+        <li>✓ Parallel generations</li>
+        <li>✓ Credits roll over</li>
+      </ul>
+      <a href="#create" class="btn btn--sun btn--full">Choose Creator</a>
+    </article>
+    <article class="plan plan--teams">
+      <h3>Teams &amp; API</h3>
+      <p class="plan__price">$49<span>/mo</span></p>
+      <p class="plan__tag">From · usage-based</p>
+      <ul>
+        <li>✓ Everything in Creator</li>
+        <li>✓ 4K exports</li>
+        <li>✓ REST API + SDKs</li>
+        <li>✓ 99.9% uptime SLA</li>
+        <li>✓ Priority support</li>
+      </ul>
+      <a href="#api" class="btn btn--ghost btn--full">Contact Sales</a>
+    </article>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <header class="section-head">
+    <p class="eyebrow eyebrow--center"><span class="dot"></span> Loved by creators</p>
+    <h2>Why creators love <em>Golden Hour</em></h2>
+  </header>
+  <div class="testimonials__track" id="testimonialsTrack"></div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <header class="section-head">
+    <h2>Questions, <em>answered.</em></h2>
+  </header>
+  <div class="faq__list">
+    <details class="faq__item" open><summary>Do I need a token or API key to start?</summary><p>No. The demo studio runs entirely in your browser with zero authentication. For production-scale API usage you can add a key, but the free creative tools never require one.</p></details>
+    <details class="faq__item"><summary>What tools are included?</summary><p>104 AI tools across video (text-to-video, image-to-video, video-to-video, face swap, lip sync, talking photo, animation, UGC ads), image (AI image generator, editor, upscaler, face swap photo), audio (TTS, voice clone, lip sync audio), and effects.</p></details>
+    <details class="faq__item"><summary>What formats and resolutions are supported?</summary><p>Exports are MP4 (video) and PNG/JPEG (image). Aspect ratios 16:9, 9:16, and 1:1 — optimized for YouTube, TikTok, Instagram Reels, and ads. Resolution up to 4K depending on the tool.</p></details>
+    <details class="faq__item"><summary>Is there a watermark?</summary><p>The free tier adds a small Golden Hour mark. Creator and Teams plans export with no watermark.</p></details>
+    <details class="faq__item"><summary>Do credits roll over?</summary><p>Yes — unused credits roll over and are refunded on render errors.</p></details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__inner">
+    <span class="cta__sun" aria-hidden="true"></span>
+    <h2>Your <em>golden hour</em> starts now.</h2>
+    <p>Free to try. No token. Nothing to install.</p>
+    <a href="#create" class="btn btn--sun btn--lg">Start Creating Free →</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <a href="#top" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="30" height="30"><rect width="40" height="40" rx="11" fill="#15100b"/><path d="M6 26 C 14 12, 26 12, 34 26" stroke="#ffb347" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="20" cy="22" r="6.5" fill="#ffb347"/></svg>
+        </span>
+        <span class="brand__text">Golden Hour</span>
+      </a>
+      <p>AI video &amp; image studio. Free, no token, browser-only. A demo inspired by magichour.ai.</p>
+    </div>
+    <div class="footer__cols">
+      <div><h4>Video</h4><a>Text-to-Video</a><a>Image-to-Video</a><a>Video-to-Video</a><a>Face Swap Video</a><a>Lip Sync</a></div>
+      <div><h4>Image</h4><a>AI Image Generator</a><a>AI Image Editor</a><a>AI Upscaler</a><a>Face Swap Photo</a><a>Headshot</a></div>
+      <div><h4>Company</h4><a href="#pricing">Pricing</a><a href="#api">API</a><a href="#create">Studio</a><a>Templates</a></div>
+      <div><h4>Legal</h4><a>Terms</a><a>Privacy</a><a>Acceptable Use</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 Golden Hour — a no-token demo. Not affiliated with magichour.ai.</p>
+    <p>Made with <span aria-hidden="true">☼</span> during the golden hour.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
